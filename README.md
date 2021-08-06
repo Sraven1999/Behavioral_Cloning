@@ -9,3 +9,4 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
+![pic of beha](https://user-images.githubusercontent.com/70041499/128503517-c4d415c8-0509-484a-8024-5abe5008cd1a.JPG)
