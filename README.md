@@ -1,5 +1,7 @@
 # Behavioral Cloning Project
 
+Link to the video showcasing the car moving around the track: https://drive.google.com/file/d/1vLPymJ190orC6QkUCoVjttUUTEaht6dm/view?usp=sharing
+
 The Project
 ---
 The goals / steps of this project are the following:
