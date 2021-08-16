@@ -34,19 +34,28 @@ def generator(samples, batch_size=32):
             images = []
             angles = []
             for batch_sample in batch_samples:
-                for i in range(3):
-                    name = './data/IMG/'+batch_sample[i].split('/')[-1]
-                    center_image = cv2.imread(name)
-                    center_angle = float(batch_sample[3])
+                #for i in range(3):
+                    #name = './data/IMG/'+batch_sample[i].split('/')[-1]
+                    #center_image = cv2.imread(name)
+                    #center_angle = float(batch_sample[3])
+                path = 'data/IMG/'
+                center_img = cv2.cvtColor(cv2.imread(path + sample[0].split('/')[-1]), cv2.COLOR_BGR2RGB)
+                left_img = cv2.cvtColor(cv2.imread(path + sample[1].split('/')[-1]), cv2.COLOR_BGR2RGB)
+                right_img = cv2.cvtColor(cv2.imread(path + sample[2].split('/')[-1]), cv2.COLOR_BGR2RGB)
+                angle = float(sample[3])
                     if abs(center_angle) >=0:
-                        correction = 0.2
-                        if i == 1:
-                            center_angle = center_angle + correction
-                        if i == 2:
-                            center_angle = center_angle - correction
+                        #correction = 0.2
+                        #if i == 1:
+                        #   center_angle = center_angle + correction
+                        #if i == 2:
+                        #    center_angle = center_angle - correction
+                        correction = 0.4
+                        center_angle = angle
+                        left_angle = center_angle + correction
+                        right_angle = center_angle - correction
                     
-                        images.append(center_image)
-                        angles.append(center_angle)
+                        images.extend([center_img, left_img, right_img])
+                        angles.extend([center_angle, left_angle, right_angle])
                         image_flipped = np.fliplr(center_image)
                         angle_flipped = -center_angle
                         images.append(image_flipped)
